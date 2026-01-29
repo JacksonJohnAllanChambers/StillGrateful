@@ -1,0 +1,44 @@
+/**
+ * Still Grateful API - Cloudflare Worker Configuration
+ * For more details: https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "stillgrateful-api",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-09-27",
+	"workers_dev": true,
+	"observability": {
+		"enabled": true
+	},
+	/**
+	 * Routes - configure custom domain
+	 */
+	"routes": [
+		{
+			"pattern": "api.stillgrateful.app/*",
+			"zone_name": "stillgrateful.app"
+		}
+	],
+	/**
+	 * D1 Database Binding
+	 * Create the database with: wrangler d1 create stillgrateful-db
+	 * Then update the database_id below with the returned ID
+	 */
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "stillgrateful-db",
+			"database_id": "13d6d6d2-ef4a-4853-b1a1-7617cb070ace"
+		}
+	]
+	/**
+	 * Secrets (set via wrangler secret put):
+	 * - GEMINI_API_KEY: for message filtering (Google AI Studio)
+	 * - RESEND_API_KEY: for sending emails
+	 * 
+	 * Run:
+	 *   wrangler secret put GEMINI_API_KEY
+	 *   wrangler secret put RESEND_API_KEY
+	 */
+}

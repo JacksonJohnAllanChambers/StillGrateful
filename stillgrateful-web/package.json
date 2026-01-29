@@ -1,0 +1,10 @@
+{
+  "name": "stillgrateful-web",
+  "version": "1.0.0",
+  "description": "Still Grateful - Anonymous gratitude messaging service",
+  "private": true,
+  "scripts": {
+    "dev": "npx wrangler pages dev . --port 3000",
+    "deploy": "npx wrangler pages deploy . --project-name=stillgrateful-web"
+  }
+}
