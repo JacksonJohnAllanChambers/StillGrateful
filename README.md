@@ -53,10 +53,6 @@ cd stillgrateful-web
 npm run dev
 ```
 
-## License
 
-MIT
-
----
 
 *Solo project • January 2026*
